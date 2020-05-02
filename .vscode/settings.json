@@ -1,0 +1,12 @@
+{
+    "files.exclude": {
+        "node_modules": true,
+        "build": true,
+        ".vscode": true,
+        ".github": true,
+		".gitignore": true,
+		".nvmrc": true,
+        "README.md": true,
+		"yarn.lock": true,
+    }
+}
