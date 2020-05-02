@@ -3,7 +3,7 @@ import './App.css';
 
 const truths = ["he isn't", "he has never been", "he will never be"];
 
-function App() {
+const App = () => {
   const [stage, setStage] = useState<number>(0);
   const onClick = () => {
     setStage(stage + 1);
@@ -17,7 +17,7 @@ function App() {
       <p className="the-answer">
         {truth}
       </p>
-      <img src="/wojak.png" alt="big boy" style={{ opacity: opacity }} />
+      <img src="/wojak.png" alt="big boy" style={{ opacity }} />
     </div>
   );
 }
