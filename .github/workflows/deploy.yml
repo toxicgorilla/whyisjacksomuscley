@@ -20,7 +20,10 @@ jobs:
         with:
           path: ~/Library/Caches/Yarn
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
-      - run: npx yarn
+      - name: Install dependencies
+        run: npx yarn
+      - name: Build
+        run: yarn build
       - name: Deploy action
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
