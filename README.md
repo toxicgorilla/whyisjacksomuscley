@@ -20,6 +20,8 @@ If you don't already have the right version of node installed this will prompt y
 nvm install
 ```
 
+You will also need to [install yarn](https://classic.yarnpkg.com/en/docs/install/) to build the project.
+
 ### Install dependencies
 
 ```shell
