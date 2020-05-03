@@ -18,10 +18,19 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - uses: actions/cache@v1
         with:
-          path: ~/Library/Caches/Yarn
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('package.json') }}
+      - name: Install yarn
+        run: npm i yarn -g
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
       - name: Install dependencies
-        run: npx yarn
+        run: yarn
       - name: Build
         run: yarn build
       - name: Deploy action
