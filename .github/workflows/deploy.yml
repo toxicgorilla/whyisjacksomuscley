@@ -21,4 +21,9 @@ jobs:
           path: ~/Library/Caches/Yarn
           key: ${{ runner.os }}-yarn-${{ hashFiles('yarn.lock') }}
       - run: npx yarn
-      - run: yarn deploy
+      - name: Deploy action
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
